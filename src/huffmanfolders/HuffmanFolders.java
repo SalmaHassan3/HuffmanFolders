@@ -1,4 +1,3 @@
-
 package huffmanfolders;
 
 import java.io.BufferedReader;
@@ -290,7 +289,10 @@ public class HuffmanFolders {
                     bw = new BufferedWriter(fw);
                     String decode = new String();
                     int place = 0, taken = 0;
-                    int length = (codeSizes2.get(m) / 8) + 1;
+                    int length = 0;
+                    if(codeSizes2.get(m) % 8==0)
+                        length = (codeSizes2.get(m) / 8);
+                    else length = (codeSizes2.get(m) / 8) + 1;
                     for (i = index; i < index + length; i++) {
                         s += String.format("%8s", Integer.toBinaryString(fileContent[i] & 0xFF)).replace(' ', '0');
                         for (int z = 0; z < s.length(); z++) {
